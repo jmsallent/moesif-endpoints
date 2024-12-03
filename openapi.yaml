@@ -1,0 +1,101 @@
+openapi: 3.0.0
+info:
+  title: Django Project API
+  version: 1.0.0
+paths:
+  /signbox/health-check/:
+    post:
+      summary: Health Check
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                billing_username:
+                  type: string
+                billing_password:
+                  type: string
+      responses:
+        '200':
+          description: Health check endpoint
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  /signbox/sign/:
+    post:
+      summary: Sign Documents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                billing_username:
+                  type: string
+                billing_password:
+                  type: string
+      responses:
+        '200':
+          description: Sign documents endpoint
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  /signbox/signature-status/:
+    post:
+      summary: Get Signature Status
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                billing_username:
+                  type: string
+                billing_password:
+                  type: string
+      responses:
+        '200':
+          description: Get signature status endpoint
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  /signbox/download-signed-document/:
+    post:
+      summary: Download Signed Document
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                billing_username:
+                  type: string
+                billing_password:
+                  type: string
+      responses:
+        '200':
+          description: Download signed document endpoint
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
