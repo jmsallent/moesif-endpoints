@@ -59,7 +59,7 @@ def identify_company(req, res):
     return company_id
 
 MOESIF_MIDDLEWARE = {
-    'APPLICATION_ID': 'eyJhcHAiOiI0OTM6MTY5MCIsInZlciI6IjIuMSIsIm9yZyI6IjU4NjozOTYiLCJpYXQiOjE3MzA0MTkyMDB9.r7KU3oDglet3jst0957UzcqjKias6PNstfwfViH9tWY',
+    'APPLICATION_ID': 'eyJhcHAiOiI0OTM6MTY5MCIsInZlciI6IjIuMSIsIm9yZyI6IjU4NjozOTYiLCJpYXQiOjE3MzMwMTEyMDB9.GQnRgkk6oAH1oRNkq8_Ovx_8f_ykRRmETXR_wgMvOWI',
     'LOG_BODY': True,
     'IDENTIFY_USER': identify_user,
     'IDENTIFY_COMPANY': identify_company,
