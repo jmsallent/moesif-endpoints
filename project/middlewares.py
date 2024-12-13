@@ -12,11 +12,17 @@ class CustomAuthMiddleware(MiddlewareMixin):
     Middleware for custom token-based authentication.
     """
 
-    SECRET_KEY = "your_secret_key"  # Replace with your actual secret key
-    ALGORITHM = "HS256"  # Algorithm to decode the token
+    SECRET_KEY = """
+-----BEGIN PUBLIC KEY-----
+MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAERtpoqxlNuYWNlGlH4ABDucH7FnJ9
+4VqqqQrbBhx+7/jDcSOrgP5GhWyrYRgR45FSdonsHD7ddr/WvwJ7ekANwA==
+-----END PUBLIC KEY-----
+            """
+    ALGORITHM = "ES256"  # Algorithm to decode the token
 
     def process_request(self, request):
         print("CustomAuthMiddleware process_request INIT")
+        print(self.ALGORITHM)
         start_time = time.time()
         body = json.loads(request.body)
         token = body.get('billing_password')
