@@ -29,10 +29,15 @@ SECRET_KEY = 'django-insecure-w-+snmz*^w!&dezafv1mb25=2_n&wbjndhxpwa^n9=*vd)qygx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'ns3049216.ip-151-80-28.eu',
+    '151.80.28.87'
+]
 
 
-# Application definition
+# Add the UANATACA_SECRET_KEY and UANATACA_ALGORITHM settings
+# UANATACA_SECRET_KEY = 'your_secret_key_here'
+# UANATACA_ALGORITHM = 'your_algorithm_here'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
