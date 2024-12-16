@@ -25,11 +25,6 @@ class CustomAuthMiddleware(MiddlewareMixin):
         token = body.get('billing_password')
         try:
             body = json.loads(request.body)
-            # Extract the header without verifying the signature
-            # header = jwt.get_unverified_header(token)
-            # print("Token Header:", header)
-            # payload = jwt.decode(token, verify=False)
-            # print("Token Payload:", payload)
             decoded_payload = jwt.decode(token, self.SECRET_KEY, algorithms=[self.ALGORITHM])
             
             end_time = time.time()
@@ -39,17 +34,4 @@ class CustomAuthMiddleware(MiddlewareMixin):
         except Exception as e:
             print("CustomAuthMiddleware Exception: ", e)
             return JsonResponse({'error': 'Invalid token'}, status=401)
-        # except exceptions.ExpiredSignatureError:
-        #     return JsonResponse({'error': 'Expired token'}, status=401)
-        # except exceptions.DecodeError:
-
-        #     return JsonResponse({'error': 'Decoding error',
-        #                          "msg": "The token is invalid or has an invalid signature",
-        #                          }, status=401)
-        # except exceptions.InvalidAlgorithmError:
-        #     return JsonResponse({'error': 'The token has an invalid algorithm'}, status=401)
-        # except exceptions.InvalidSignatureError:
-        #     return JsonResponse({'error': 'The token has an invalid signature'}, status=401)
-        # except exceptions.InvalidTokenError:
-        #     return JsonResponse({'error': 'The token is invalid'}, status=401)
         
